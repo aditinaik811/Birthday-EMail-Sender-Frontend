@@ -38,7 +38,7 @@ function App() {
 
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ backgroundColor:"green"}}>
       <h2>🎉 Birthday Reminder</h2>
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
