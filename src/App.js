@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
+const API = process.env.REACT_APP_API_BASE_URL
 function App() {
   const [form, setForm] = useState({ name: "", email: "", birthday: "" });
   const[birthday,setBirthday]=useState({})
@@ -9,7 +10,7 @@ function App() {
 
 
   useEffect(()=>{
-    axios.get('http://localhost:5000/api/users')
+    axios.get(`${API}/api/users`)
     .then(res=>{
       console.log(res.data);
       setBirthday(res.data)
@@ -22,7 +23,7 @@ function App() {
   const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await fetch("http://localhost:5000/api/users", {
+    const res = await fetch(`${API}/api/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
